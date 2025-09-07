@@ -1,0 +1,77 @@
+:root{
+  --violet:#4A148C;      /* couleur principale */
+  --gris:#F5F5F5;        /* fond */
+  --or:#FFC107;          /* accent */
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family: system-ui, -apple-system, Arial, sans-serif;
+  background: var(--gris);
+  color:#333;
+  line-height:1.6;
+}
+
+/* Header + Nav */
+header{
+  background: var(--violet);
+  color:#fff;
+  padding:32px 16px;
+  text-align:center;
+}
+header .subtitle{opacity:.9;margin-top:8px}
+
+nav{
+  background: var(--violet);
+  border-top:1px solid rgba(255,255,255,.15);
+  border-bottom:1px solid rgba(255,255,255,.15);
+  display:flex; gap:12px; justify-content:center;
+  padding:10px 12px; position:sticky; top:0; z-index:10;
+}
+nav a{
+  color:#fff; text-decoration:none; font-weight:600;
+  padding:8px 12px; border-radius:6px;
+}
+nav a:hover{ color:var(--or); background:rgba(255,255,255,.08) }
+nav a[aria-current="page"]{ outline:2px solid var(--or) }
+
+/* Layout */
+.container{ max-width:1000px; margin:24px auto; padding:0 16px }
+.card{
+  background:#fff; border:1px solid #eaeaea; border-radius:12px;
+  padding:24px; box-shadow:0 2px 10px rgba(0,0,0,.03);
+}
+.hero{ display:grid; grid-template-columns:140px 1fr; gap:20px; align-items:center }
+.hero img{
+  width:140px; height:140px; border-radius:50%; object-fit:cover;
+  border:4px solid #fff; box-shadow:0 0 0 4px var(--violet);
+}
+h1,h2{ color:var(--violet); margin:0 0 12px }
+.lead{ font-size:1.05rem }
+
+/* Boutons & petits éléments */
+.btn{
+  display:inline-block; background:var(--violet); color:#fff;
+  padding:10px 16px; border-radius:8px; text-decoration:none; font-weight:700;
+}
+.btn:hover{ background:var(--or); color:#000 }
+.tag{ display:inline-block; padding:4px 10px; border-radius:999px;
+  background:rgba(255,193,7,.18); color:#7a5b00; font-weight:600; margin-right:6px }
+footer{
+  margin-top:40px; background:var(--violet); color:#fff; text-align:center; padding:18px
+}
+
+/* Responsive */
+@media (max-width:700px){
+  .hero{ grid-template-columns:1fr; text-align:center }
+  .hero img{ margin:0 auto }
+}
+.photo-profil {
+  width: 150px;          /* taille de la photo */
+  height: 150px;
+  border-radius: 50%;    /* rend l'image ronde */
+  object-fit: cover;     /* recadre si l'image est rectangulaire */
+  border: 4px solid #fff; 
+  box-shadow: 0 0 0 4px var(--violet); /* petit contour violet */
+}
