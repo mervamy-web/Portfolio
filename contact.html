@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact — Joigneau Merveille BAH</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    form {
+      max-width: 500px;
+      margin: auto;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+      color: var(--violet);
+    }
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 15px;
+      background: var(--or);
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background: #e0a800;
+    }
+    .contact-info {
+      margin-top: 40px;
+      text-align: center;
+    }
+    .contact-info a {
+      display: block;
+      margin: 5px 0;
+      color: var(--violet);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Contactez-moi</h1>
+    <p class="subtitle">Restons en contact ✨</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="a-propos.html">À propos</a>
+    <a href="competences.html">Compétences</a>
+    <a href="projets.html">Projets</a>
+    <a href="hobbies.html">Hobbies</a>
+    <a href="contact.html" aria-current="page">Contact</a>
+  </nav>
+
+  <main class="container">
+
+    <form id="contactForm">
+      <label for="name">Nom :</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Adresse email :</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Message :</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit">Envoyer</button>
+    </form>
+
+    <div class="contact-info">
+      <h2>Mes coordonnées</h2>
+      <a href="mailto:joigneaubah01@gmail.com">📧 joigneaubah01@gmail.com</a>
+      <a href="https://www.linkedin.com/in/joigneau-merveille-bah-117b44231" target="_blank">💼 Mon LinkedIn</a>
+      <a href="https://www.instagram.com/amy_merve" target="_blank">📸 @amy_merve</a>
+    </div>
+
+  </main>
+
+  <footer>
+    © Joigneau Merveille BAH — Portfolio
+  </footer>
+
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function(event){
+      event.preventDefault(); // empêche l'envoi "classique"
+      
+      let name = document.getElementById("name").value.trim();
+      let email = document.getElementById("email").value.trim();
+      let message = document.getElementById("message").value.trim();
+
+      if(name === "" || email === "" || message === ""){
+        alert("Merci de remplir tous les champs.");
+        return;
+      }
+
+      // Vérification simple de l'email
+      let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      if(!email.match(emailPattern)){
+        alert("Veuillez entrer une adresse email valide.");
+        return;
+      }
+
+      alert("Merci " + name + "! Votre message a bien été envoyé.");
+      document.getElementById("contactForm").reset();
+    });
+  </script>
+
+</body>
+</html>
